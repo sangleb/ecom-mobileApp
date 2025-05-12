@@ -1,10 +1,10 @@
+import { theme } from "@/app/theme";
+import { useUserStore } from "@/store/useUserStore";
 import Feather from "@expo/vector-icons/Feather";
 import { Redirect, Tabs } from "expo-router";
-import { theme } from "@/app/theme";
-
-const isOnboardingFinished = false;
 
 export default function Layout(){
+    const { isOnboardingFinished } = useUserStore();
     if(!isOnboardingFinished){
         return(
             <Redirect href="/Onboarding"></Redirect>
