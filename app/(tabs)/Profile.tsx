@@ -1,12 +1,17 @@
 import { StyleSheet, Text, View } from "react-native";
 import { theme } from "@/app/theme";
+import { HapticButton } from "@/components/HapticButton";
+import { useUserStore } from "@/store/useUserStore";
 
 export default function Profile(){
+
+    const toggleOnboarding = useUserStore(state => state.toggleOnboarding)
     return (
         <View style={styles.container}>
-            <Text style={styles.text}>
-                Profile
-            </Text>
+            <HapticButton 
+                title="Back to onboarding"
+                onPress={toggleOnboarding}
+            />
         </View>
     )
 }
